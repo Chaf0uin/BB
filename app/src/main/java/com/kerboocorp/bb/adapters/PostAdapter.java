@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.kerboocorp.bb.R;
 import com.kerboocorp.bb.model.Post;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -100,7 +101,7 @@ public class PostAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         public GifImageView boobsImageView;
         public GifDrawable boobsDrawable;
         public LinearLayout playButtonLayout;
-        public Context context;
+        //public Context context;
 
         public EventViewHolder(View itemView) {
             super(itemView);
@@ -109,25 +110,31 @@ public class PostAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             boobsImageView = ButterKnife.findById(itemView, R.id.boobsImageView);
             boobsImageView.setAlpha(0.5f);
 
+            Picasso.
+                    with(context).
+                    load("http://38.media.tumblr.com/tumblr_m3jyvcqp5Y1qjlzdho1_500.gif").
+                    into(boobsImageView);
+
             playButtonLayout = ButterKnife.findById(itemView, R.id.playButtonLayout);
 
-            boobsDrawable = (GifDrawable) boobsImageView.getDrawable();
-            boobsDrawable.stop();
+//            boobsDrawable = (GifDrawable) boobsImageView.getDrawable();
+//            boobsDrawable.stop();
+//
+//            boobsImageView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (boobsDrawable.isPlaying()) {
+//                        boobsDrawable.stop();
+//                        boobsImageView.setAlpha(0.5f);
+//                        playButtonLayout.setVisibility(View.VISIBLE);
+//                    } else {
+//                        boobsDrawable.start();
+//                        boobsImageView.setAlpha(1f);
+//                        playButtonLayout.setVisibility(View.GONE);
+//                    }
+//                }
+//            });
 
-            boobsImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (boobsDrawable.isPlaying()) {
-                        boobsDrawable.stop();
-                        boobsImageView.setAlpha(0.5f);
-                        playButtonLayout.setVisibility(View.VISIBLE);
-                    } else {
-                        boobsDrawable.start();
-                        boobsImageView.setAlpha(1f);
-                        playButtonLayout.setVisibility(View.GONE);
-                    }
-                }
-            });
             itemView.setOnClickListener(this);
         }
 
