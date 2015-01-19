@@ -70,21 +70,22 @@ public class PostAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(rowLayout, viewGroup, false);
-        return new EventViewHolder(v);
+        return new PostViewHolder(v);
 
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
 
-        if (viewHolder instanceof EventViewHolder) {
+        if (viewHolder instanceof PostViewHolder) {
 
-            EventViewHolder eventViewHolder = (EventViewHolder) viewHolder;
+            PostViewHolder postViewHolder = (PostViewHolder) viewHolder;
             Post post = postList.get(i);
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-            eventViewHolder.date.setText(dateFormat.format(post.getUploadDate()));
+            //postViewHolder.date.setText(dateFormat.format(post.getCreatedAt()));
+            postViewHolder.date.setText(post.getCreatedAt());
         }
 
     }
@@ -95,15 +96,14 @@ public class PostAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
 
-    public class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         public TextView date;
         public GifImageView boobsImageView;
         public GifDrawable boobsDrawable;
         public LinearLayout playButtonLayout;
-        //public Context context;
 
-        public EventViewHolder(View itemView) {
+        public PostViewHolder(View itemView) {
             super(itemView);
 
             date = ButterKnife.findById(itemView, R.id.dateTextView);

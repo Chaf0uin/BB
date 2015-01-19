@@ -4,6 +4,7 @@ import com.kerboocorp.bb.model.Post;
 
 import java.util.List;
 
+import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;
 
@@ -12,8 +13,8 @@ import retrofit.http.Path;
  */
 public interface PostManager {
 
-    public List<Post> findPostList(int page);
+    //public List<Post> findPostList(int page);
 
     @GET("/posts")
-    public List<Post> findPostList();
+    public void findPostList(Callback<List<Post>> postList);
 }

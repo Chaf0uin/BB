@@ -12,7 +12,7 @@ import retrofit.RestAdapter;
 /**
  * Created by cgo on 16/01/2015.
  */
-public class PostManagerImpl implements PostManager {
+public class PostManagerImpl  {
 
     private PostManager service;
     private static PostManagerImpl instance = new PostManagerImpl();
@@ -25,28 +25,28 @@ public class PostManagerImpl implements PostManager {
         service = restAdapter.create(PostManager.class);
     }
 
-    public static PostManager getInstance() {
-        return instance;
-    }
+    //public static PostManager getInstance() {
+   //     return instance;
+   // }
 
-    @Override
-    public List<Post> findPostList(int page) {
+//    @Override
+//    public List<Post> findPostList(int page) {
+//
+//        List<Post> postList = new ArrayList<Post>();
+//
+//        Post post = new Post();
+//        post.setCreatedAt("12/12/2015");
+//        postList.add(post);
+//
+//        post = new Post();
+//        post.setCreatedAt("12/12/2015");
+//        postList.add(post);
+//
+//        return postList;
+//    }
 
-        List<Post> postList = new ArrayList<Post>();
-
-        Post post = new Post();
-        post.setUploadDate(new Date());
-        postList.add(post);
-
-        post.setUploadDate(new Date());
-        postList.add(post);
-
-        return postList;
-    }
-
-    @Override
-    public List<Post> findPostList() {
-        List<Post> p = service.findPostList();
-        return p;
-    }
+//    @Override
+//    public void findPostList() {
+//        service.findPostList();
+//    }
 }

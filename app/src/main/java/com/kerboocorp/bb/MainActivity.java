@@ -6,18 +6,24 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.kerboocorp.bb.adapters.PostAdapter;
+import com.kerboocorp.bb.managers.PostClient;
 import com.kerboocorp.bb.managers.PostManager;
 import com.kerboocorp.bb.managers.impl.PostManagerImpl;
 import com.kerboocorp.bb.model.Post;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -45,9 +51,30 @@ public class MainActivity extends ActionBarActivity {
         postAdapter = new PostAdapter(R.layout.list_card_post, this);
         postListView.setAdapter(postAdapter);
 
-        List<Post> posts = PostManagerImpl.getInstance().findPostList();
+        List<Post> postList = new ArrayList<Post>();
 
-        postAdapter.addPostList(PostManagerImpl.getInstance().findPostList(1));
+        Post post = new Post();
+        post.setCreatedAt("12/12/2015");
+        postList.add(post);
+
+        post = new Post();
+        post.setCreatedAt("12/12/2015");
+        postList.add(post);
+
+        postAdapter.addPostList(postList);
+
+        PostClient.getPostService().findPostList(new Callback<List<Post>>() {
+            @Override
+            public void success(List<Post> posts, Response response) {
+                List<Post> p = posts;
+                Log.d("TEST", "OKEEEEE");
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
 
     }
 
