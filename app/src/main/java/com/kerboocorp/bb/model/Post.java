@@ -11,6 +11,12 @@ public class Post extends BaseModel {
     private String imageUrl;
     private Date uploadDate;
 
+//    private String creationDate;
+//    private String urlImage;
+//    private String createdAt;
+//    private String updatedAt;
+//    private Object validated;
+
     public String getTitle() {
         return title;
     }

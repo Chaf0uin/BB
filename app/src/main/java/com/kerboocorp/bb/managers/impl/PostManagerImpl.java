@@ -7,14 +7,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import retrofit.RestAdapter;
+
 /**
  * Created by cgo on 16/01/2015.
  */
 public class PostManagerImpl implements PostManager {
 
+    private PostManager service;
     private static PostManagerImpl instance = new PostManagerImpl();
 
-    private PostManagerImpl() {}
+    private PostManagerImpl() {
+        RestAdapter restAdapter = new RestAdapter.Builder()
+                .setEndpoint("http://evening-brushlands-1756.herokuapp.com/api/v1")
+                .build();
+
+        service = restAdapter.create(PostManager.class);
+    }
 
     public static PostManager getInstance() {
         return instance;
@@ -33,5 +42,11 @@ public class PostManagerImpl implements PostManager {
         postList.add(post);
 
         return postList;
+    }
+
+    @Override
+    public List<Post> findPostList() {
+        List<Post> p = service.findPostList();
+        return p;
     }
 }

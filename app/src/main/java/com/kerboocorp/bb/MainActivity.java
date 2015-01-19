@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import com.kerboocorp.bb.adapters.PostAdapter;
 import com.kerboocorp.bb.managers.PostManager;
 import com.kerboocorp.bb.managers.impl.PostManagerImpl;
+import com.kerboocorp.bb.model.Post;
 
 import java.util.List;
 
@@ -43,6 +44,8 @@ public class MainActivity extends ActionBarActivity {
 
         postAdapter = new PostAdapter(R.layout.list_card_post, this);
         postListView.setAdapter(postAdapter);
+
+        List<Post> posts = PostManagerImpl.getInstance().findPostList();
 
         postAdapter.addPostList(PostManagerImpl.getInstance().findPostList(1));
 
