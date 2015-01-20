@@ -53,13 +53,13 @@ public class MainActivity extends ActionBarActivity {
 
         List<Post> postList = new ArrayList<Post>();
 
-        Post post = new Post();
-        post.setCreatedAt("12/12/2015");
-        postList.add(post);
-
-        post = new Post();
-        post.setCreatedAt("12/12/2015");
-        postList.add(post);
+//        Post post = new Post();
+//        post.setCreatedAt("12/12/2015");
+//        postList.add(post);
+//
+//        post = new Post();
+//        post.setCreatedAt("12/12/2015");
+//        postList.add(post);
 
         postAdapter.addPostList(postList);
 
@@ -67,6 +67,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void success(List<Post> posts, Response response) {
                 List<Post> p = posts;
+                postAdapter.addPostList(p);
                 Log.d("TEST", "OKEEEEE");
             }
 

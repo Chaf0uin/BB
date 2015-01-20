@@ -23,11 +23,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <pl.droidsonroids.gif.GifImageView
-                android:id="@+id/boobsImageView"
+            <!--<pl.droidsonroids.gif.GifImageView-->
+                <!--android:id="@+id/boobsImageView"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:src="@drawable/genevievemorton" />-->
+
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/genevievemorton" />
+                android:layout_height="wrap_content"
+                android:id="@+id/boobsImageView"/>
 
             <LinearLayout
                 android:id="@+id/playButtonLayout"
@@ -40,7 +45,7 @@
                     android:id="@+id/playTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Play"
+                    android:text=""
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
