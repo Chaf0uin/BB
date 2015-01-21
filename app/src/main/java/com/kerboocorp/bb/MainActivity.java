@@ -7,13 +7,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.kerboocorp.bb.adapters.PostAdapter;
 import com.kerboocorp.bb.managers.PostClient;
-import com.kerboocorp.bb.managers.PostManager;
-import com.kerboocorp.bb.managers.impl.PostManagerImpl;
 import com.kerboocorp.bb.model.Post;
 
 import java.util.ArrayList;
@@ -30,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
 
     @InjectView(R.id.toolbar) Toolbar toolbar;
     @InjectView(R.id.postList) RecyclerView postListView;
+    @InjectView(R.id.progressLayout) RelativeLayout progressLayout;
 
     private LinearLayoutManager linearLayoutManager;
     private PostAdapter postAdapter;
@@ -48,7 +48,7 @@ public class MainActivity extends ActionBarActivity {
         postListView.setLayoutManager(linearLayoutManager);
         postListView.setItemAnimator(new DefaultItemAnimator());
 
-        postAdapter = new PostAdapter(R.layout.list_card_post, this);
+        postAdapter = new PostAdapter(R.layout.list_item_post, this);
         postListView.setAdapter(postAdapter);
 
         List<Post> postList = new ArrayList<Post>();
@@ -66,6 +66,7 @@ public class MainActivity extends ActionBarActivity {
         PostClient.getPostService().findPostList(new Callback<List<Post>>() {
             @Override
             public void success(List<Post> posts, Response response) {
+                progressLayout.setVisibility(View.GONE);
                 List<Post> p = posts;
                 postAdapter.addPostList(p);
                 Log.d("TEST", "OKEEEEE");

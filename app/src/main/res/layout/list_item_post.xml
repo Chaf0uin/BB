@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,17 +16,13 @@
             android:text="24/10/2014"
             android:textColor="@android:color/black"
             android:textSize="22sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:textStyle="bold" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <!--<pl.droidsonroids.gif.GifImageView-->
-                <!--android:id="@+id/boobsImageView"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:src="@drawable/genevievemorton" />-->
 
             <ImageView
                 android:layout_width="match_parent"
@@ -52,10 +47,16 @@
 
             </LinearLayout>
 
+            <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/genevievemorton"-->
+                <!--android:layout_below="@+id/boobsImageView"/>-->
+
         </RelativeLayout>
 
 
     </LinearLayout>
 
 
-</android.support.v7.widget.CardView>
+</LinearLayout>

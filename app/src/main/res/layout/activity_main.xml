@@ -5,6 +5,8 @@
 
     <include layout="@layout/toolbar" />
 
+    <include layout="@layout/progress_layout" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/postList"
         android:layout_marginTop="?attr/actionBarSize"
