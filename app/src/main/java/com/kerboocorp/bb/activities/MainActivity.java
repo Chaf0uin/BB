@@ -1,4 +1,4 @@
-package com.kerboocorp.bb;
+package com.kerboocorp.bb.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.kerboocorp.bb.R;
 import com.kerboocorp.bb.adapters.PostAdapter;
 import com.kerboocorp.bb.managers.PostClient;
 import com.kerboocorp.bb.model.Post;
