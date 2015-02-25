@@ -54,14 +54,6 @@ public class MainActivity extends ActionBarActivity {
 
         List<Post> postList = new ArrayList<Post>();
 
-//        Post post = new Post();
-//        post.setCreatedAt("12/12/2015");
-//        postList.add(post);
-//
-//        post = new Post();
-//        post.setCreatedAt("12/12/2015");
-//        postList.add(post);
-
         postAdapter.addPostList(postList);
 
         PostClient.getPostService().findPostList(new Callback<List<Post>>() {

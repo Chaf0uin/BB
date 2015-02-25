@@ -1,5 +1,6 @@
 package com.kerboocorp.bb.adapters;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -99,27 +101,30 @@ public class PostAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 postViewHolder.date.setText(post.getCreatedAt());
             }
 
-            Glide.with(context).load(post.getUrlImage()).into(new GlideDrawableImageViewTarget(postViewHolder.boobsImageView) {
-                @Override
-                public void onResourceReady(final GlideDrawable drawable, GlideAnimation anim) {
-                    super.onResourceReady(drawable, anim);
-                    drawable.stop();
+//            Glide.with(context).load(post.getUrlImage()).into(new GlideDrawableImageViewTarget(postViewHolder.boobsImageView) {
+//                @Override
+//                public void onResourceReady(final GlideDrawable drawable, GlideAnimation anim) {
+//                    super.onResourceReady(drawable, anim);
+//                    drawable.stop();
 
-                    postViewHolder.boobsImageView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (drawable.isRunning()) {
-                                drawable.stop();
-                                postViewHolder.boobsImageView.setAlpha(0.5f);
-                            } else {
-                                drawable.start();
-                                postViewHolder.boobsImageView.setAlpha(1f);
-                            }
-                        }
-                    });
+                    //RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams( RelativeLayout.LayoutParams.MATCH_PARENT,  RelativeLayout.LayoutParams.WRAP_CONTENT);
+                    //postViewHolder.boobsImageView.setLayoutParams(layoutParams);
 
-                }
-            });
+//                    postViewHolder.boobsImageView.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            if (drawable.isRunning()) {
+//                                drawable.stop();
+//                                postViewHolder.boobsImageView.setAlpha(0.5f);
+//                            } else {
+//                                drawable.start();
+//                                postViewHolder.boobsImageView.setAlpha(1f);
+//                            }
+//                        }
+//                    });
+//
+//                }
+//            });
 
             //Glide.with(context).load(post.getUrlImage()).into(postViewHolder.boobsImageView);
         }
@@ -135,15 +140,15 @@ public class PostAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         public TextView date;
-        public ImageView boobsImageView;
+        //public ImageView boobsImageView;
         public LinearLayout playButtonLayout;
 
         public PostViewHolder(View itemView) {
             super(itemView);
 
             date = ButterKnife.findById(itemView, R.id.dateTextView);
-            boobsImageView = ButterKnife.findById(itemView, R.id.boobsImageView);
-            boobsImageView.setAlpha(0.5f);
+            //boobsImageView = ButterKnife.findById(itemView, R.id.boobsImageView);
+            //boobsImageView.setAlpha(0.5f);
 
             playButtonLayout = ButterKnife.findById(itemView, R.id.playButtonLayout);
 

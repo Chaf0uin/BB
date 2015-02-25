@@ -24,10 +24,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/boobsImageView"/>-->
+
+            <com.kerboocorp.bb.views.AnimatedImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/boobsImageView"/>
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:id="@+id/playButtonLayout"
